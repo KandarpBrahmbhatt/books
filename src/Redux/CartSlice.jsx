@@ -4,7 +4,7 @@ const cartSlice =  createSlice ({
     name:  "cart",
     initialState :{
         cart:[]
-    },
+    },          
     reducers:{
         addtoCard: (state,action) => {
             console.log(state,"state");

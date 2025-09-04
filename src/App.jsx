@@ -15,6 +15,9 @@ import Dashboard from './Dashbord.jsx'
 import ProtectedRoute from './ProtectedRoutes.jsx' // Make sure this file exists
 
 function App() {
+  // login and logout function
+
+  const isLoggedIn = JSON.parse(localStorage.getItem("keeplogedIn")) || false;
   return (
     <AuthProvider>
       <Provider store={store}>
@@ -24,7 +27,7 @@ function App() {
             <Route path="/" element={<LoginForm />} />
             <Route path="/product" element={
                 <ProtectedRoute>
-                  <Product />
+                 isLoggedIn?<Product />
               </ProtectedRoute>} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />

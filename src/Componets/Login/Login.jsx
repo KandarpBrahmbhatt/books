@@ -2,7 +2,7 @@ import { useAuth } from "../../AuthContext";
 import "../Login/Login.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {  toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 function LoginForm() {
   const { login } = useAuth();
@@ -25,10 +25,11 @@ function LoginForm() {
     login();
     navigate("/product");
     toast.success("Login successful!");
-
+    localStorage.setItem("keeplogedIn",JSON.stringify(true));
+    navigate("/product");
   };
 
-  const notify = () => toast("Wow so easy!");
+  const notify = () => toast("fill all the data");
 
   return (
     <div className="loginform">
@@ -54,6 +55,7 @@ function LoginForm() {
 
         <button type="submit" onClick={notify}>Login</button>
         
+         <ToastContainer />
       </form>
     </div>
   );

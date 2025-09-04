@@ -7,14 +7,22 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import { addtoCard } from "../../Redux/CartSlice.jsx"
 
-import { ToastContainer } from "react-toastify";
+// import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify"; 
  const Product = () => {
     // const { dispatch } = useContext(CartContext)
-
+    
     const dispatch  = useDispatch()
+// const notify = () => toast("fill all the data");
 
+const logout= () => {
+    localStorage.clear();
+    localStorage.setItem("keeplogedIn",JSON.stringify(false));
+    window.location.reload();
+}
     return (
         <>
+        <ToastContainer />
             <div className="box">
                 <div className="imges">
                     {items.map((prodct) => (
@@ -29,16 +37,19 @@ import { ToastContainer } from "react-toastify";
 
                             <p>{prodct.price}</p>
 
-                            <button onClick={()=>dispatch(addtoCard(prodct))}>Add to card</button>
+                           <button onClick={() => {
+  dispatch(addtoCard(prodct));
+  toast.success("Added to cart!");
+}}>Add to card</button>
                             <ToastContainer />
                         </div>
                     ))}
                 </div>
-            </div >
+            </div >                 
         </>
     )
 }
-
+                     
 export default Product
 
 
