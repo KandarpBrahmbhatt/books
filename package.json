@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://kandarpbrahmbhatt.github.io",
+  "homepage": "https://kandarpbrahmbhatt.github.io/books",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
