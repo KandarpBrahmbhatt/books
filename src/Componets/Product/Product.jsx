@@ -16,6 +16,7 @@ import { ToastContainer, toast } from "react-toastify";
 // const notify = () => toast("fill all the data");
 
 const logout= () => {
+    
     localStorage.clear();
     localStorage.setItem("keeplogedIn",JSON.stringify(false));
     window.location.reload();

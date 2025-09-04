@@ -11,6 +11,7 @@ const Navbar = () => {
   const handleAuthClick = (e) => {
     if (isLoggedIn) {
       e.preventDefault();
+      
       localStorage.setItem("keeplogedIn", JSON.stringify(false));
       navigate("/product");
       window.location.reload(); // Optional: reload to update UI
